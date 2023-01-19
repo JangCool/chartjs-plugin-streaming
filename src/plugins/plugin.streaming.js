@@ -201,6 +201,7 @@ export default {
   },
 
   defaults: {
+    currentDateTime: null,
     duration: 10000,
     delay: 0,
     frameRate: 30,

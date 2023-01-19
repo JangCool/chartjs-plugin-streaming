@@ -1,6 +1,7 @@
 import { Chart, ChartComponent, ChartType, TimeScale, TimeScaleOptions, Plugin } from 'chart.js';
 
 interface Options {
+  currentDateTime?:number;
   duration?: number;
   delay?: number;
   frameRate?: number;

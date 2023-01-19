@@ -8,8 +8,7 @@ export function update(...args) {
 
   if (element) {
     // eslint-disable-next-line no-console
-    console.log('me._chart ', me._chart);
-    const meta = me._chart.getDatasetMeta(element.datasetIndex);
+    const meta = me.chart.getDatasetMeta(element.datasetIndex);
 
     me.$streaming = getAxisMap(me, transitionKeys, meta);
   } else {

@@ -142,7 +142,7 @@ function clean(scale) {
   const delay = resolveOption(scale, 'delay');
   const ttl = resolveOption(scale, 'ttl');
   const pause = resolveOption(scale, 'pause');
-  const min = Date.now() - (isNaN(ttl) ? duration + delay : ttl);
+  const min = max - (isNaN(ttl) ? duration + delay : ttl);
   let i, start, count, removalRange;
 
   // Remove old data
@@ -234,15 +234,18 @@ function transition(element, id, translate) {
 }
 
 function scroll(scale) {
-  const {chart, id, $realtime: realtime} = scale;
+  const {chart, id, $realtime: realtime, options} = scale;
+
+  const currentDateTime = resolveOption(scale, 'currentDateTime');
   const duration = resolveOption(scale, 'duration');
   const delay = resolveOption(scale, 'delay');
   const isHorizontal = scale.isHorizontal();
   const length = isHorizontal ? scale.width : scale.height;
-  const now = Date.now();
+  const now = currentDateTime ? new Date(currentDateTime).getTime() : Date.now();
   const tooltip = chart.tooltip;
   const annotations = getElements(chart);
   let offset = length * (now - realtime.head) / duration;
+
 
   if (isHorizontal === !!scale.options.reverse) {
     offset = -offset;
@@ -312,6 +315,8 @@ export default class RealTimeScale extends TimeScale {
     } else {
       if (!realtime.frameRequestID) {
         realtime.head = Date.now();
+        console.log(' realtime.head',  options.realtime);
+
       }
       startFrameRefreshTimer(realtime, () => {
         const chart = me.chart;
