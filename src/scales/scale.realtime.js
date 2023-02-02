@@ -315,8 +315,6 @@ export default class RealTimeScale extends TimeScale {
     } else {
       if (!realtime.frameRequestID) {
         realtime.head = Date.now();
-        console.log(' realtime.head',  options.realtime);
-
       }
       startFrameRefreshTimer(realtime, () => {
         const chart = me.chart;

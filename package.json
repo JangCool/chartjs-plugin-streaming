@@ -3,7 +3,7 @@
     "homepage": "https://github.com/zerocooldog/chartjs-plugin-streaming",
     "description": "Chart.js plugin for live streaming data",
     "author": "Akihiko Kusanagi <nagi@nagi-p.com> (https://nagix.github.io/)",
-    "version": "2.0.1-alpha-10",
+    "version": "2.0.1-alpha-11",
     "license": "MIT",
     "jsdelivr": "dist/chartjs-plugin-streaming.min.js",
     "unpkg": "dist/chartjs-plugin-streaming.min.js",
